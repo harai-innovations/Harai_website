@@ -1,0 +1,60 @@
+<svg viewBox="0 0 880 560" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="EEG electrode head map with seizure focus and brain signal traces">
+<defs>
+  <linearGradient id="nbg" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#0e0a18"/><stop offset="1" stop-color="#080611"/>
+  </linearGradient>
+  <radialGradient id="head" cx="0.5" cy="0.45" r="0.6">
+    <stop offset="0" stop-color="#241d3a"/><stop offset="1" stop-color="#16122a"/>
+  </radialGradient>
+  <radialGradient id="focus" cx="0.5" cy="0.5" r="0.5">
+    <stop offset="0" stop-color="#ff6f62" stop-opacity="0.8"/><stop offset="1" stop-color="#ff6f62" stop-opacity="0"/>
+  </radialGradient>
+  <filter id="nglow"><feGaussianBlur stdDeviation="4"/></filter>
+</defs>
+<rect width="880" height="560" fill="url(#nbg)"/>
+<!-- head map (top-down) -->
+<g transform="translate(280 230)">
+  <path d="M0 -150 l16 26 h-32 Z" fill="#2a2342"/>            <!-- nose -->
+  <ellipse cx="-150" cy="0" rx="14" ry="30" fill="#221c38"/>  <!-- ears -->
+  <ellipse cx="150" cy="0" rx="14" ry="30" fill="#221c38"/>
+  <circle r="150" fill="url(#head)" stroke="#A78BFA" stroke-opacity="0.35" stroke-width="2"/>
+  <circle r="100" fill="none" stroke="#A78BFA" stroke-opacity="0.15"/>
+  <line x1="-150" y1="0" x2="150" y2="0" stroke="#A78BFA" stroke-opacity="0.12"/>
+  <line x1="0" y1="-150" x2="0" y2="150" stroke="#A78BFA" stroke-opacity="0.12"/>
+  <!-- seizure focus glow (temporal) -->
+  <circle cx="78" cy="40" r="64" fill="url(#focus)" filter="url(#nglow)"/>
+  <!-- 10-20 electrodes -->
+  <g fill="#B49CFB">
+    <circle cx="-48" cy="-104" r="8"/><circle cx="48" cy="-104" r="8"/>
+    <circle cx="-92" cy="-44" r="8"/><circle cx="-30" cy="-44" r="8"/><circle cx="30" cy="-44" r="8"/><circle cx="92" cy="-44" r="8"/>
+    <circle cx="-110" cy="40" r="8"/><circle cx="-38" cy="40" r="8"/><circle cx="38" cy="40" r="8"/>
+    <circle cx="78" cy="40" r="9" fill="#FF6F62"/>
+    <circle cx="-60" cy="108" r="8"/><circle cx="60" cy="108" r="8"/><circle cx="0" cy="120" r="8"/>
+    <circle cx="0" cy="0" r="8"/>
+  </g>
+  <text x="78" y="68" font-family="monospace" font-size="11" fill="#ffb3ac" text-anchor="middle">T4 focus</text>
+</g>
+<!-- multichannel traces (right) -->
+<g transform="translate(470 60)" stroke="#B49CFB" stroke-width="2" fill="none" opacity="0.92">
+  <path d="M0 40 q20 -22 40 0 t40 0 40 0 40 0 40 0 40 0 40 0 40 0 40 0" filter="url(#nglow)"/>
+  <path d="M0 110 q14 -10 28 4 t28 -8 30 14 28 -16 30 18 28 -10 30 8 28 -12 30 10 28 -6" />
+  <path d="M0 180 q18 -16 36 2 t36 -6 36 12 36 -14 36 16 36 -8 36 6"/>
+  <!-- pre-ictal burst channel -->
+  <path d="M0 250 q8 -4 14 6 t12 -22 12 30 12 -34 12 38 12 -30 12 24 12 -28 12 20 12 -10 12 6 14 -4"
+        stroke="#FF6F62"/>
+  <path d="M0 320 q18 -14 36 2 t36 -6 36 12 36 -12 36 14 36 -8"/>
+</g>
+<g font-family="monospace" font-size="11" fill="#9b8fc7" transform="translate(450 60)">
+  <text x="0" y="44">Fp1</text><text x="0" y="114">F3</text><text x="0" y="184">C3</text>
+  <text x="0" y="254" fill="#FF8074">T4</text><text x="0" y="324">P3</text>
+</g>
+<!-- HUD -->
+<text x="40" y="56" font-family="monospace" font-size="14" fill="#B49CFB" letter-spacing="2">EEG · 10–20 · 256 Hz</text>
+<g font-family="monospace" font-size="14" fill="#d7cef0">
+  <text x="40" y="470">SEIZURE RISK · 30 min</text>
+  <rect x="40" y="482" width="360" height="9" rx="4" fill="#1c1730"/>
+  <rect x="40" y="482" width="248" height="9" rx="4" fill="#FF6F62"/>
+  <text x="540" y="470">ALZHEIMER MARKER</text><text x="540" y="500" fill="#B49CFB" font-size="18">θ/α elevated</text>
+</g>
+<text x="40" y="534" font-family="sans-serif" font-size="13" fill="#6f649b" opacity="0.85">Illustration — replace with real montage</text>
+</svg>
