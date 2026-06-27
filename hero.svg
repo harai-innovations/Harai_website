@@ -1,0 +1,63 @@
+<svg viewBox="0 0 760 620" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="HARAI Healthcare connected diagnostics">
+<defs>
+  <linearGradient id="hbg" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#F2F9F7"/><stop offset="1" stop-color="#E9F3F4"/>
+  </linearGradient>
+  <linearGradient id="band" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#2b3540"/><stop offset="1" stop-color="#161d25"/>
+  </linearGradient>
+  <linearGradient id="screen" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#08313a"/><stop offset="1" stop-color="#0c1620"/>
+  </linearGradient>
+  <filter id="ds" x="-20%" y="-20%" width="140%" height="140%">
+    <feDropShadow dx="0" dy="14" stdDeviation="18" flood-color="#0d2a38" flood-opacity="0.16"/>
+  </filter>
+  <filter id="ds2" x="-20%" y="-20%" width="140%" height="140%">
+    <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#0d2a38" flood-opacity="0.14"/>
+  </filter>
+</defs>
+<rect width="760" height="620" rx="24" fill="url(#hbg)"/>
+<!-- concentric brand rings -->
+<g transform="translate(380 310)" stroke="#17A673" fill="none">
+  <circle r="270" stroke-opacity="0.08"/><circle r="210" stroke-opacity="0.10"/><circle r="150" stroke-opacity="0.12"/>
+</g>
+<!-- pulse line across -->
+<path d="M40 320 H210 l16 -70 l24 150 l18 -120 l12 40 l10 0 H330 q26 0 34 -30 q6 30 16 30 H720"
+      fill="none" stroke="#0E8FA6" stroke-width="3" opacity="0.55"/>
+<!-- wearable band -->
+<g transform="rotate(-18 390 320)" filter="url(#ds)">
+  <rect x="276" y="150" width="230" height="360" rx="60" fill="none" stroke="#222a33" stroke-width="22" stroke-opacity="0.25"/>
+  <rect x="300" y="208" width="182" height="244" rx="40" fill="url(#band)"/>
+  <rect x="320" y="232" width="142" height="196" rx="26" fill="url(#screen)" stroke="#17A673" stroke-opacity="0.4"/>
+  <!-- screen content -->
+  <text x="338" y="272" font-family="monospace" font-size="26" fill="#fff">Na⁺</text>
+  <text x="338" y="300" font-family="monospace" font-size="26" fill="#3DE0B0">138</text>
+  <text x="338" y="320" font-family="monospace" font-size="13" fill="#7fbfb5">mEq/L</text>
+  <!-- mini ecg -->
+  <path d="M334 372 h22 l8 -26 l10 44 l8 -30 l6 12 h40" fill="none" stroke="#0FB7C9" stroke-width="2.6"/>
+  <text x="338" y="416" font-family="monospace" font-size="12" fill="#9fd6cf">live</text>
+  <!-- sensor LED -->
+  <circle cx="391" cy="486" r="9" fill="#13A39A" opacity="0.25"/><circle cx="391" cy="486" r="4.5" fill="#22D38B"/>
+</g>
+<!-- floating ion chips -->
+<g font-family="monospace" font-size="14" filter="url(#ds2)">
+  <g transform="translate(96 150)"><rect width="92" height="40" rx="20" fill="#fff"/><circle cx="22" cy="20" r="7" fill="#17A673"/><text x="38" y="25" fill="#15232C">K⁺ 4.2</text></g>
+  <g transform="translate(560 168)"><rect width="104" height="40" rx="20" fill="#fff"/><circle cx="22" cy="20" r="7" fill="#0E8FA6"/><text x="38" y="25" fill="#15232C">Cl⁻ 102</text></g>
+  <g transform="translate(584 430)"><rect width="116" height="40" rx="20" fill="#fff"/><circle cx="22" cy="20" r="7" fill="#17A673"/><text x="38" y="25" fill="#15232C">Ca²⁺ 9.4</text></g>
+</g>
+<!-- normal range pill -->
+<g transform="translate(96 470)" filter="url(#ds2)">
+  <rect width="216" height="46" rx="23" fill="#fff"/>
+  <circle cx="28" cy="23" r="11" fill="#17A673"/>
+  <path d="M23 23 l4 4 l7 -9" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="48" y="28" font-family="sans-serif" font-size="14" fill="#15232C">All values within normal range</text>
+</g>
+<!-- brand cross -->
+<g transform="translate(648 300)">
+  <rect x="-7" y="-20" width="14" height="14" rx="4" fill="#1BB07A"/>
+  <rect x="6" y="-7" width="14" height="14" rx="4" fill="#13A39A"/>
+  <rect x="-7" y="6" width="14" height="14" rx="4" fill="#1BB07A"/>
+  <rect x="-20" y="-7" width="14" height="14" rx="4" fill="#13A39A"/>
+  <rect x="-7" y="-7" width="14" height="14" rx="4" fill="#17A673"/>
+</g>
+</svg>

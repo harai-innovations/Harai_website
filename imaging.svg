@@ -1,0 +1,45 @@
+<svg viewBox="0 0 880 560" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="MRI brain contrast showing enhancing tumor with AI segmentation">
+<defs>
+  <radialGradient id="ibg" cx="0.5" cy="0.45" r="0.75"><stop offset="0" stop-color="#0d1116"/><stop offset="1" stop-color="#020406"/></radialGradient>
+  <radialGradient id="skull" cx="0.5" cy="0.42" r="0.62"><stop offset="0" stop-color="#6a6e76"/><stop offset="0.7" stop-color="#3c4047"/><stop offset="1" stop-color="#1d2026"/></radialGradient>
+  <radialGradient id="brain" cx="0.5" cy="0.45" r="0.62"><stop offset="0" stop-color="#a6acb4"/><stop offset="0.78" stop-color="#6e747c"/><stop offset="1" stop-color="#474b52"/></radialGradient>
+  <filter id="iglow"><feGaussianBlur stdDeviation="4"/></filter>
+</defs>
+<rect width="880" height="560" fill="url(#ibg)"/>
+<g transform="translate(420 288)">
+  <ellipse rx="218" ry="250" fill="url(#skull)"/>
+  <ellipse rx="194" ry="224" fill="#06080b"/>
+  <ellipse cy="6" rx="180" ry="208" fill="url(#brain)"/>
+  <path d="M0 -196 V208" stroke="#2a2e35" stroke-width="3"/>
+  <g fill="none" stroke="#41454d" stroke-width="3" opacity="0.7">
+    <path d="M-148 -108 q40 -30 70 5 q30 30 -10 60"/><path d="M-118 32 q50 -10 60 40 q5 45 -55 50"/>
+    <path d="M-88 130 q45 0 55 45"/><path d="M118 -118 q-40 -25 -65 10 q-25 32 12 58"/>
+    <path d="M132 42 q-55 -5 -60 45 q0 42 55 48"/><path d="M92 134 q-40 5 -52 48"/>
+    <path d="M-40 -148 q40 10 38 55"/><path d="M40 -148 q-40 10 -38 55"/>
+  </g>
+  <path d="M-22 -28 q-30 30 -10 70 q12 22 28 6 M22 -28 q30 30 10 70 q-12 22 -28 6" fill="#23272e" opacity="0.85"/>
+  <!-- ring-enhancing tumor -->
+  <g transform="translate(64 -52)">
+    <circle r="40" fill="#3a3e45"/>
+    <circle r="40" fill="none" stroke="#f3f4f2" stroke-width="9" opacity="0.92"/>
+    <circle r="40" fill="none" stroke="#fff" stroke-width="4"/>
+    <circle r="20" fill="#2c3036"/>
+    <!-- AI segmentation contour -->
+    <circle r="48" fill="none" stroke="#17E08B" stroke-width="2" stroke-dasharray="5 4" opacity="0.9"/>
+  </g>
+</g>
+<!-- yellow annotation (brand sheet style) -->
+<g>
+  <path d="M620 200 L520 248" stroke="#F2C200" stroke-width="2.5" fill="none"/>
+  <path d="M520 248 l16 -4 l-6 -14 Z" fill="#F2C200"/>
+  <text x="628" y="196" font-family="sans-serif" font-size="17" font-weight="600" fill="#F2C200">Enhancing Tumor</text>
+</g>
+<text x="40" y="56" font-family="monospace" font-size="14" fill="#cfd5dc" letter-spacing="1">MRI BRAIN (CONTRAST)</text>
+<text x="60" y="500" font-family="monospace" font-size="16" fill="#9aa2ab">R</text>
+<!-- AI seg HUD -->
+<g font-family="monospace" font-size="13" fill="#17E08B">
+  <rect x="640" y="452" width="200" height="62" rx="8" fill="#0a1410" stroke="#17E08B" stroke-opacity="0.3"/>
+  <text x="656" y="476" fill="#9fe9c6">AI SEGMENTATION</text>
+  <text x="656" y="500">vol 2.34 cm³ · conf 0.91</text>
+</g>
+</svg>

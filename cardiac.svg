@@ -1,0 +1,50 @@
+<svg viewBox="0 0 880 560" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="ECG monitor trace with heart">
+<defs>
+  <linearGradient id="cbg" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#160d10"/><stop offset="1" stop-color="#0a0608"/>
+  </linearGradient>
+  <filter id="cglow"><feGaussianBlur stdDeviation="3"/></filter>
+  <radialGradient id="heart" cx="0.4" cy="0.35" r="0.7">
+    <stop offset="0" stop-color="#ff8175"/><stop offset="1" stop-color="#d83b2c"/>
+  </radialGradient>
+</defs>
+<rect width="880" height="560" fill="url(#cbg)"/>
+<!-- fine grid -->
+<g stroke="#FF5C49" stroke-opacity="0.07">
+  <g id="fine"></g>
+</g>
+<g stroke="#FF5C49" stroke-opacity="0.06" stroke-width="1">
+  <path d="M0 80H880M0 160H880M0 240H880M0 320H880M0 400H880M0 480H880"/>
+  <path d="M80 0V560M160 0V560M240 0V560M320 0V560M400 0V560M480 0V560M560 0V560M640 0V560M720 0V560M800 0V560"/>
+</g>
+<g stroke="#FF5C49" stroke-opacity="0.13" stroke-width="1.4">
+  <path d="M0 160H880M0 320H880M0 480H880"/><path d="M160 0V560M320 0V560M480 0V560M640 0V560M800 0V560"/>
+</g>
+<!-- ECG trace (two beats) -->
+<g stroke="#FF6F62" stroke-width="3" fill="none" filter="url(#cglow)">
+  <path d="M0 300 H120 q12 0 18 -14 q6 14 18 14 H230 l10 6 l14 -150 l16 250 l12 -120 l10 14 H360
+           q30 0 40 -34 q6 34 18 34 H520 l10 6 l14 -150 l16 250 l12 -120 l10 14 H660
+           q30 0 40 -34 q6 34 18 34 H880"/>
+</g>
+<g stroke="#FF5C49" stroke-width="3" fill="none">
+  <path d="M0 300 H120 q12 0 18 -14 q6 14 18 14 H230 l10 6 l14 -150 l16 250 l12 -120 l10 14 H360
+           q30 0 40 -34 q6 34 18 34 H520 l10 6 l14 -150 l16 250 l12 -120 l10 14 H660
+           q30 0 40 -34 q6 34 18 34 H880" opacity="0.95"/>
+</g>
+<!-- R peak markers -->
+<circle cx="270" cy="156" r="6" fill="#fff"/><circle cx="560" cy="156" r="6" fill="#fff"/>
+<text x="280" y="150" font-family="monospace" font-size="12" fill="#ffd2cc">R</text>
+<!-- heart glyph -->
+<g transform="translate(700 110)">
+  <path d="M0 24 C0 8 -22 -2 -36 12 C-50 26 -36 50 0 76 C36 50 50 26 36 12 C22 -2 0 8 0 24 Z" fill="url(#heart)" opacity="0.9"/>
+  <path d="M-44 30 H-26 l6 -16 l10 30 l8 -22 l5 8 H30" stroke="#fff" stroke-width="2.5" fill="none" stroke-linejoin="round"/>
+</g>
+<!-- HUD -->
+<text x="40" y="56" font-family="monospace" font-size="14" fill="#FF8074" letter-spacing="2">ECG · LEAD II · 250 Hz</text>
+<g font-family="monospace" font-size="14" fill="#e7c6c2">
+  <text x="40" y="476">HR</text><text x="40" y="500" fill="#FF6F62" font-size="20">72 bpm</text>
+  <text x="220" y="476">RHYTHM</text><text x="220" y="500" fill="#FF6F62" font-size="20">Sinus</text>
+  <text x="420" y="476">HRV</text><text x="420" y="500" fill="#FF6F62" font-size="20">54 ms</text>
+</g>
+<text x="640" y="534" font-family="sans-serif" font-size="13" fill="#8a5e58" opacity="0.85">Illustration — replace with real trace</text>
+</svg>
