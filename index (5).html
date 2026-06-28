@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>HARAI Innovation Pvt Ltd — Transforming healthcare through innovation</title>
+<meta name="description" content="HARAI Innovation Private Limited connects diagnostics, wearables and digital care — non-invasive electrolyte monitoring, imaging AI with tumor segmentation, ECG and EEG intelligence, and an EHR platform." />
+<link rel="icon" type="image/png" href="images/favicon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --brand:#17A673; --brand-d:#0E8A5F; --teal:#0E8FA6; --navy:#0D2A38;
+    --ink:#15232C; --mute:#5C6B76; --line:#E3EAEC; --bg:#FFFFFF; --bg-2:#F4F8F8;
+    --display:"Space Grotesk",sans-serif; --body:"IBM Plex Sans",sans-serif; --mono:"IBM Plex Mono",monospace;
+    --maxw:1180px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);font-family:var(--body);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  ::selection{background:var(--brand);color:#fff}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+  .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.2em;text-transform:uppercase;display:inline-block;color:var(--teal)}
+
+  /* lockup */
+  .lock{display:flex;align-items:center;gap:11px}
+  .logo-img{height:50px;width:auto;display:block;transition:transform .3s}
+  .lock:hover .logo-img{transform:scale(1.04)}
+  .logo-chip{display:inline-block;background:#fff;border-radius:14px;padding:14px 18px;line-height:0}
+  .logo-chip img{height:76px;width:auto;display:block}
+
+  /* NAV */
+  header.nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.85);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);transition:box-shadow .3s}
+  header.nav.scrolled{box-shadow:0 6px 28px -18px rgba(13,42,56,.5)}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;height:72px;max-width:var(--maxw);margin:0 auto;padding:0 28px}
+  .nav-links{display:flex;gap:26px;align-items:center}
+  .nav-links a:not(.nav-cta){font-size:14px;color:var(--mute);position:relative;padding:4px 0;transition:color .2s}
+  .nav-links a:not(.nav-cta)::after{content:"";position:absolute;left:0;right:100%;bottom:0;height:2px;background:var(--brand);border-radius:2px;transition:right .28s ease}
+  .nav-links a:not(.nav-cta):hover{color:var(--ink)}
+  .nav-links a:not(.nav-cta):hover::after{right:0}
+  .nav-cta{position:relative;overflow:hidden;font-weight:600;font-size:14px;color:#fff!important;background:var(--brand);padding:10px 18px;border-radius:8px;transition:transform .15s,box-shadow .2s,background .2s}
+  .nav-cta:hover{transform:translateY(-1px);background:var(--brand-d);box-shadow:0 8px 22px rgba(23,166,115,.32)}
+  .nav-cta::before{content:"";position:absolute;top:0;left:-120%;width:60%;height:100%;background:linear-gradient(120deg,transparent,rgba(255,255,255,.5),transparent);transform:skewX(-20deg)}
+  .nav-cta:hover::before{animation:shine .8s}
+  @keyframes shine{to{left:160%}}
+  .burger{display:none;background:none;border:1px solid var(--line);border-radius:8px;width:42px;height:38px;cursor:pointer;color:var(--ink);font-size:18px}
+
+  /* HERO */
+  .hero{position:relative;overflow:hidden;background:var(--bg-2)}
+  #heroCanvas{position:absolute;inset:0;width:100%;height:100%;z-index:0}
+  .blob{position:absolute;border-radius:50%;filter:blur(60px);opacity:.5;z-index:0;pointer-events:none}
+  .blob.b1{width:480px;height:480px;background:radial-gradient(circle,#7fe6cf,transparent 70%);top:-120px;left:-80px;animation:float1 16s ease-in-out infinite}
+  .blob.b2{width:420px;height:420px;background:radial-gradient(circle,#9fd9e6,transparent 70%);bottom:-140px;right:-60px;animation:float2 19s ease-in-out infinite}
+  .blob.b3{width:300px;height:300px;background:radial-gradient(circle,#bdf0df,transparent 70%);top:30%;right:24%;animation:float1 22s ease-in-out infinite reverse}
+  @keyframes float1{0%,100%{transform:translate(0,0)}50%{transform:translate(40px,30px)}}
+  @keyframes float2{0%,100%{transform:translate(0,0)}50%{transform:translate(-40px,-30px)}}
+  .hero-in{position:relative;z-index:2;display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:center;max-width:var(--maxw);margin:0 auto;padding:78px 28px 74px}
+  .hero h1{font-family:var(--display);font-weight:600;font-size:clamp(34px,5vw,60px);line-height:1.05;letter-spacing:-.025em;margin:16px 0 0;color:var(--ink)}
+  .hero h1 em{font-style:normal;background:linear-gradient(100deg,var(--brand),var(--teal),#3DE0B0,var(--brand));background-size:300% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:hue 6s linear infinite}
+  @keyframes hue{to{background-position:300% 0}}
+  .hero p.lede{font-size:clamp(16px,1.7vw,19px);color:#3F4D57;max-width:50ch;margin:20px 0 0}
+  .hero-actions{display:flex;gap:14px;margin-top:28px;flex-wrap:wrap}
+  .btn{position:relative;overflow:hidden;font-size:15px;font-weight:600;padding:13px 24px;border-radius:9px;cursor:pointer;border:1px solid transparent;transition:transform .15s,box-shadow .2s,background .2s,border-color .2s,color .2s;display:inline-flex;align-items:center;gap:9px}
+  .btn-primary{background:var(--brand);color:#fff}
+  .btn-primary:hover{transform:translateY(-2px);background:var(--brand-d);box-shadow:0 12px 30px rgba(23,166,115,.34)}
+  .btn-primary::before{content:"";position:absolute;top:0;left:-120%;width:55%;height:100%;background:linear-gradient(120deg,transparent,rgba(255,255,255,.55),transparent);transform:skewX(-20deg)}
+  .btn-primary:hover::before{animation:shine .8s}
+  .btn-ghost{background:#fff;color:var(--ink);border-color:var(--line)}
+  .btn-ghost:hover{border-color:var(--brand);color:var(--brand);transform:translateY(-2px)}
+  .hero-art{position:relative;will-change:transform}
+  .hero-art img{width:100%;border-radius:22px;box-shadow:0 30px 70px -40px rgba(13,42,56,.5)}
+  .hero-art .ring{position:absolute;inset:-14px;border:1.5px dashed rgba(14,143,166,.35);border-radius:30px;animation:spin 40s linear infinite}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .hero-pillars{display:flex;gap:10px;flex-wrap:wrap;margin-top:30px}
+  .hero-pillars span{font-family:var(--mono);font-size:12px;color:var(--brand-d);background:#E7F4EF;border:1px solid #CDEBDF;padding:6px 12px;border-radius:30px;transition:transform .2s,background .2s}
+  .hero-pillars span:hover{transform:translateY(-2px);background:#dcf0e8}
+
+  /* MARQUEE */
+  .marquee{background:var(--navy);color:#fff;overflow:hidden;padding:15px 0;white-space:nowrap}
+  .marquee .track{display:inline-flex;gap:0;animation:scroll 26s linear infinite}
+  .marquee:hover .track{animation-play-state:paused}
+  .marquee span{font-family:var(--mono);font-size:13px;letter-spacing:.08em;color:#bcd3da;padding:0 26px}
+  .marquee span b{color:#3DE0B0}
+  @keyframes scroll{to{transform:translateX(-50%)}}
+
+  /* STATS */
+  .stats{background:#fff;padding:54px 0;border-bottom:1px solid var(--line)}
+  .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;text-align:center}
+  .stat .n{font-family:var(--display);font-size:clamp(34px,4.5vw,52px);font-weight:700;letter-spacing:-.02em;background:linear-gradient(120deg,var(--brand),var(--teal));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;line-height:1}
+  .stat .l{font-family:var(--mono);font-size:12px;letter-spacing:.06em;color:var(--mute);margin-top:8px}
+
+  /* PULSE DIVIDER */
+  .pulse-divider{background:var(--bg-2)}
+  .pulse-divider canvas{display:block;width:100%;height:90px}
+
+  /* SECTION */
+  .sec-head{max-width:700px}
+  .sec-head h2{font-family:var(--display);font-weight:600;letter-spacing:-.02em;font-size:clamp(26px,3.4vw,40px);line-height:1.1;margin:14px 0 0;color:var(--ink)}
+  .sec-head p{margin-top:14px;font-size:16px;color:var(--mute)}
+  .projects{padding:78px 0 60px}
+
+  .pcard{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:28px;border:1px solid var(--line);border-top:3px solid var(--ac);border-radius:18px;overflow:hidden;background:#fff;box-shadow:0 18px 44px -34px rgba(13,42,56,.5);transition:transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .35s}
+  .pcard:hover{transform:translateY(-6px);box-shadow:0 34px 70px -36px rgba(13,42,56,.6)}
+  .pcard.flip .pcard-media{order:2}
+  .pcard-media{position:relative;background:#0b1116;min-height:340px;overflow:hidden}
+  .pcard-media img{width:100%;height:100%;object-fit:cover;min-height:340px;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+  .pcard:hover .pcard-media img{transform:scale(1.06)}
+  .pcard-media::after{content:"";position:absolute;top:0;left:-150%;width:60%;height:100%;background:linear-gradient(120deg,transparent,rgba(255,255,255,.18),transparent);transform:skewX(-20deg);transition:none}
+  .pcard:hover .pcard-media::after{animation:sweep 1s ease}
+  @keyframes sweep{to{left:160%}}
+  .pcard-body{padding:40px 38px;display:flex;flex-direction:column;justify-content:center}
+  .pmeta{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+  .pnum{font-family:var(--mono);font-size:12px;letter-spacing:.14em;color:var(--act)}
+  .pindep{font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--act);background:var(--ac-b);border-radius:20px;padding:4px 11px}
+  .pstatus{font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--mute);border:1px solid var(--line);border-radius:20px;padding:4px 11px}
+  .pcard-body h3{font-family:var(--display);font-size:clamp(22px,2.5vw,29px);font-weight:600;letter-spacing:-.02em;margin:15px 0 11px;line-height:1.12;color:var(--ink)}
+  .pcard-body .desc{color:#475059;font-size:15.5px;max-width:48ch}
+  .pcard-body ul{list-style:none;margin-top:16px;display:flex;flex-direction:column;gap:8px}
+  .pcard-body li{display:flex;gap:11px;font-size:14.5px;color:#3C4650;align-items:flex-start}
+  .pcard-body li .b{width:7px;height:7px;border-radius:50%;background:var(--ac);margin-top:8px;flex:none;box-shadow:0 0 0 0 var(--ac)}
+  .pcard:hover .pcard-body li .b{animation:ping 1.4s ease-out infinite}
+  @keyframes ping{0%{box-shadow:0 0 0 0 var(--ac)}70%{box-shadow:0 0 0 6px transparent}100%{box-shadow:0 0 0 0 transparent}}
+  .pchips{margin-top:18px;display:flex;flex-wrap:wrap;gap:7px}
+  .pchips span{font-family:var(--mono);font-size:11px;color:var(--act);background:var(--ac-b);padding:4px 10px;border-radius:6px}
+
+  .alt{background:var(--bg-2)}
+  .sec-pad{padding:84px 0}
+  .mission{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+  .mission .big{font-family:var(--display);font-size:clamp(23px,3vw,34px);font-weight:500;line-height:1.28;letter-spacing:-.015em;color:var(--ink)}
+  .mission .big em{font-style:normal;color:var(--brand)}
+  .mission .body p{color:#475059;margin-bottom:15px;font-size:16px}
+
+  .cta{background:var(--navy);border-radius:24px;padding:60px 48px;text-align:center;position:relative;overflow:hidden;color:#fff}
+  .cta h2{font-family:var(--display);font-size:clamp(26px,3.6vw,40px);font-weight:600;letter-spacing:-.02em;position:relative;z-index:2}
+  .cta p{color:#AEC3CC;max-width:50ch;margin:14px auto 0;position:relative;z-index:2}
+  .cta .hero-actions{justify-content:center;position:relative;z-index:2}
+  .cta::before{content:"";position:absolute;inset:-50%;background:conic-gradient(from 0deg,transparent,rgba(23,166,115,.22),transparent,rgba(14,143,166,.22),transparent);animation:spin 18s linear infinite;z-index:1}
+  .cta .btn-ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.25)}
+  .cta .btn-ghost:hover{border-color:#3DE0B0;color:#3DE0B0}
+
+  footer{background:var(--navy);color:#fff;padding:54px 0 30px}
+  .foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px}
+  .foot-grid h5{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#7f97a1;margin-bottom:16px}
+  .foot-grid a{display:block;color:#C5D3D9;font-size:14px;margin-bottom:11px;transition:color .2s,transform .2s}
+  .foot-grid a:hover{color:#3DE0B0;transform:translateX(3px)}
+  .foot-grid p{color:#9fb4bd;font-size:14px;max-width:38ch;margin-top:14px}
+  .foot-bottom{display:flex;justify-content:space-between;align-items:center;margin-top:44px;padding-top:22px;border-top:1px solid rgba(255,255,255,.12);font-size:13px;color:#9fb4bd;flex-wrap:wrap;gap:10px}
+  .foot-bottom .tl{color:#3DE0B0;font-family:var(--display);font-weight:500}
+
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+
+  @media(max-width:900px){
+    .nav-links{position:fixed;inset:72px 0 auto 0;flex-direction:column;background:#fff;padding:24px 28px;gap:18px;border-bottom:1px solid var(--line);display:none}
+    .nav-links.open{display:flex}
+    .burger{display:block}
+    .hero-in{grid-template-columns:1fr;gap:28px;padding:48px 28px}
+    .hero-art{max-width:460px}
+    .stats-grid{grid-template-columns:1fr 1fr;gap:30px}
+    .pcard,.mission{grid-template-columns:1fr}
+    .pcard.flip .pcard-media{order:0}
+    .foot-grid{grid-template-columns:1fr 1fr}
+  }
+  @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="nav-in">
+    <a class="lock" href="#top" aria-label="HARAI Innovations Private Limited home">
+      <img class="logo-img" src="images/logo.png" alt="HARAI Innovations Private Limited" width="376" height="448" />
+    </a>
+    <nav class="nav-links" id="navlinks">
+      <a href="#electrolyte">Wearable</a>
+      <a href="#imaging">Imaging AI</a>
+      <a href="#cardiac">Cardiac</a>
+      <a href="#neuro">Neuro</a>
+      <a href="#ehr">EHR</a>
+      <a class="nav-cta" href="#contact">Request access</a>
+    </nav>
+    <button class="burger" id="burger" aria-label="Menu">&#9776;</button>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <span class="blob b1"></span><span class="blob b2"></span><span class="blob b3"></span>
+  <canvas id="heroCanvas"></canvas>
+  <div class="hero-in">
+    <div>
+      <span class="eyebrow">HARAI Innovation Pvt Ltd</span>
+      <h1>Transforming healthcare <em>through innovation.</em></h1>
+      <p class="lede">Connecting diagnostics, wearables and digital care — empowering clinicians with intelligent technologies, and delivering better outcomes for every patient.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#electrolyte">Explore our work &#8594;</a>
+        <a class="btn btn-ghost" href="#contact">Partner with us</a>
+      </div>
+      <div class="hero-pillars">
+        <span>Non-invasive</span><span>Real-time monitoring</span><span>Clinically validated</span><span>EHR-connected</span>
+      </div>
+    </div>
+    <div class="hero-art reveal" id="heroArt"><span class="ring"></span><img src="images/hero.svg" alt="HARAI wearable electrolyte band with live readout" width="760" height="620" loading="eager"/></div>
+  </div>
+</section>
+
+<div class="marquee" aria-hidden="true">
+  <div class="track" id="mqtrack">
+    <span>Non-invasive electrolytes</span><span><b>CT</b></span><span><b>MRI</b></span><span><b>X-ray</b></span><span>Tumor segmentation</span><span><b>ECG</b></span><span>Arrhythmia</span><span><b>EEG</b></span><span>Seizure prediction</span><span>Alzheimer&#39;s markers</span><span>HL7 FHIR</span><span>Deep learning</span><span>Vision-language models</span>
+  </div>
+</div>
+
+<section class="stats">
+  <div class="wrap">
+    <div class="stats-grid reveal">
+      <div class="stat"><div class="n" data-target="4" data-suffix="">0</div><div class="l">Electrolytes tracked</div></div>
+      <div class="stat"><div class="n" data-target="3" data-suffix="">0</div><div class="l">Imaging modalities</div></div>
+      <div class="stat"><div class="n" data-target="5" data-suffix="">0</div><div class="l">Active projects</div></div>
+      <div class="stat"><div class="n" data-target="24" data-suffix="/7">0</div><div class="l">Continuous monitoring</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="pulse-divider"><canvas id="pulse1"></canvas></div>
+
+<section class="projects">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">What we build</span>
+      <h2>Distinct projects, one standard of care.</h2>
+      <p>Each project below is built and validated on its own track — different teams, timelines and regulatory paths — under one quality system.</p>
+    </div>
+
+    <article class="pcard reveal" id="electrolyte" style="--ac:#17A673;--act:#0E8A5F;--ac-b:#E7F4EF">
+      <div class="pcard-media"><img src="images/electrolyte.svg" alt="Non-invasive electrolyte monitoring wearable band with report"/></div>
+      <div class="pcard-body">
+        <div class="pmeta"><span class="pnum">PROJECT 01</span><span class="pindep">Independent project</span><span class="pstatus">Hardware + ML</span></div>
+        <h3>Non-invasive electrolyte monitoring band</h3>
+        <p class="desc">A wearable that measures key electrolytes through the skin — sodium, potassium, chloride and calcium — using sweat/ISF biosensing. No blood pricking, no lab, continuous all day.</p>
+        <ul>
+          <li><span class="b"></span>Measures Na&#8314;, K&#8314;, Cl&#8315;, Ca&#178;&#8314; continuously</li>
+          <li><span class="b"></span>Smart alerts on abnormal electrolyte levels</li>
+          <li><span class="b"></span>Lightweight, water-resistant, long battery life</li>
+        </ul>
+        <div class="pchips"><span>Sweat / ISF biosensing</span><span>Real-time</span><span>Clinically validated</span></div>
+      </div>
+    </article>
+
+    <article class="pcard flip reveal" id="imaging" style="--ac:#E0A21A;--act:#A8780C;--ac-b:#FBF1DC">
+      <div class="pcard-media"><img src="images/imaging.svg" alt="MRI brain contrast with enhancing tumor and AI segmentation"/></div>
+      <div class="pcard-body">
+        <div class="pmeta"><span class="pnum">PROJECT 02</span><span class="pindep">Independent project</span><span class="pstatus">Deep learning</span></div>
+        <h3>Medical imaging AI &mdash; disease prediction &amp; tumor segmentation</h3>
+        <p class="desc">Deep models read CT, MRI and X-ray to predict disease and segment tumors voxel by voxel — outlining the lesion, sizing it, and reporting a calibrated confidence on every study.</p>
+        <ul>
+          <li><span class="b"></span>Tumor segmentation with volume estimation</li>
+          <li><span class="b"></span>Disease prediction across CT, MRI &amp; X-ray</li>
+          <li><span class="b"></span>Findings localised, with calibrated confidence</li>
+        </ul>
+        <div class="pchips"><span>CT</span><span>MRI</span><span>X-ray</span><span>Segmentation</span></div>
+      </div>
+    </article>
+
+    <article class="pcard reveal" id="cardiac" style="--ac:#E0483A;--act:#C23426;--ac-b:#FBE7E4">
+      <div class="pcard-media"><img src="images/cardiac.svg" alt="ECG monitor trace"/></div>
+      <div class="pcard-body">
+        <div class="pmeta"><span class="pnum">PROJECT 03</span><span class="pindep">Independent project</span><span class="pstatus">Signal ML</span></div>
+        <h3>Cardiac intelligence &mdash; ECG</h3>
+        <p class="desc">Continuous ECG decomposed into the features that matter — rhythm, intervals and waveform morphology — mapped to arrhythmia detection and longer-term cardiac risk.</p>
+        <ul>
+          <li><span class="b"></span>R-peak detection and interval analysis</li>
+          <li><span class="b"></span>Arrhythmia and morphology classification</li>
+          <li><span class="b"></span>Heart-rate variability for risk profiling</li>
+        </ul>
+        <div class="pchips"><span>PQRST</span><span>Arrhythmia</span><span>HRV</span></div>
+      </div>
+    </article>
+
+    <article class="pcard flip reveal" id="neuro" style="--ac:#7C5CE0;--act:#6A48D6;--ac-b:#EDE8FB">
+      <div class="pcard-media"><img src="images/neuro.svg" alt="EEG electrode map with seizure focus"/></div>
+      <div class="pcard-body">
+        <div class="pmeta"><span class="pnum">PROJECT 04</span><span class="pindep">Independent project</span><span class="pstatus">Neuro ML</span></div>
+        <h3>Neuro signals &mdash; EEG</h3>
+        <p class="desc">Multichannel EEG models that watch for the build-up to a seizure and track the slow spectral signatures linked to Alzheimer&#39;s — turning brain activity into early warning.</p>
+        <ul>
+          <li><span class="b"></span>Pre-ictal detection for seizure warning</li>
+          <li><span class="b"></span>Spectral markers associated with Alzheimer&#39;s</li>
+          <li><span class="b"></span>Personalised baseline per patient</li>
+        </ul>
+        <div class="pchips"><span>10&#8211;20 montage</span><span>Seizure</span><span>Alzheimer&#39;s</span></div>
+      </div>
+    </article>
+
+    <article class="pcard reveal" id="ehr" style="--ac:#0E8FA6;--act:#0B7587;--ac-b:#E1F2F5">
+      <div class="pcard-media"><img src="images/ehr.svg" alt="HARAI EHR dashboard"/></div>
+      <div class="pcard-body">
+        <div class="pmeta"><span class="pnum">PROJECT 05</span><span class="pindep">Independent project</span><span class="pstatus">Software app</span></div>
+        <h3>HARAI EHR System</h3>
+        <p class="desc">A standalone electronic health record application — patient records, encounters, vitals, labs and imaging in one clinician-first workspace, with seamless sync from HARAI devices.</p>
+        <ul>
+          <li><span class="b"></span>Encounters, prescriptions, labs &amp; imaging</li>
+          <li><span class="b"></span>Seamless data sync from HARAI wearables</li>
+          <li><span class="b"></span>Interoperable, auditable, consent-aware</li>
+        </ul>
+        <div class="pchips"><span>HL7 FHIR</span><span>Interoperability</span><span>Audit</span></div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<div class="pulse-divider"><canvas id="pulse2"></canvas></div>
+
+<section class="alt" id="mission">
+  <div class="wrap sec-pad">
+    <div class="mission">
+      <div class="reveal">
+        <span class="eyebrow">Why HARAI</span>
+        <p class="big" style="margin-top:16px">Most disease is detectable long before it&#39;s diagnosed. Each of our projects narrows that gap in its own domain — turning the signals people already carry into <em>earlier, better-informed care.</em></p>
+      </div>
+      <div class="body reveal">
+        <p>We keep these efforts independent on purpose. A wearable sensor, an imaging model, a cardiac classifier, a neuro predictor and a records platform carry different risks, regulators and roadmaps — so they move at their own pace, with their own teams.</p>
+        <p>Sensor engineers, ML researchers and clinicians work under one quality system, so every project meets the same bar for validation, traceability and trust.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap sec-pad">
+    <div class="cta reveal">
+      <span class="eyebrow" style="color:#3DE0B0">Get in touch</span>
+      <h2>Let&#39;s build better outcomes together.</h2>
+      <p>For research collaborations, clinical pilots, or early access to any one project — tell us which one and what you&#39;re working on.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="mailto:harai.innovations@harai.in">Request access &#8594;</a>
+        <a class="btn btn-ghost" href="https://www.haraihealthcare.com" target="_blank" rel="noopener">Visit haraihealthcare.com</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="lock" href="#top">
+          <span class="logo-chip"><img src="images/logo.png" alt="HARAI Innovations Private Limited" width="376" height="448" /></span>
+        </a>
+        <p>Connecting diagnostics, wearables and digital care for better outcomes.</p>
+        <p style="margin-top:8px"><a href="mailto:harai.innovations@harai.in" style="color:#3DE0B0;display:inline;margin:0">harai.innovations@harai.in</a></p>
+      </div>
+      <div><h5>Projects</h5><a href="#electrolyte">Wearable band</a><a href="#imaging">Imaging AI</a><a href="#cardiac">Cardiac / ECG</a><a href="#neuro">Neuro / EEG</a><a href="#ehr">EHR System</a></div>
+      <div><h5>Company</h5><a href="#mission">Mission</a><a href="mailto:harai.innovations@harai.in">Contact</a><a href="mailto:harai.innovations@harai.in?subject=Careers%20at%20HARAI">Careers</a><a href="#contact">Press</a></div>
+    </div>
+    <div class="foot-bottom">
+      <span>&copy; <span id="yr"></span> HARAI Innovation Private Limited. Demonstration site &mdash; illustrations only, not a medical device.</span>
+      <span class="tl">Innovating Diagnostics. Enhancing Lives.</span>
+      <span>www.haraihealthcare.com</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+const $=s=>document.querySelector(s);
+const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+$('#yr').textContent=new Date().getFullYear();
+
+/* nav */
+const burger=$('#burger'),navlinks=$('#navlinks'),nav=$('#nav');
+burger.addEventListener('click',()=>navlinks.classList.toggle('open'));
+navlinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>navlinks.classList.remove('open')));
+addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>8),{passive:true});
+
+/* reveals */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+/* count-up */
+const cio=new IntersectionObserver(es=>es.forEach(e=>{
+  if(!e.isIntersecting)return; cio.unobserve(e.target);
+  e.target.querySelectorAll('.n').forEach(n=>{
+    const t=+n.dataset.target, suf=n.dataset.suffix||''; let v=0; const dur=1100, t0=performance.now();
+    if(reduce){n.textContent=t+suf;return;}
+    const step=ts=>{const p=Math.min(1,(ts-t0)/dur); v=Math.round(t*(1-Math.pow(1-p,3))); n.textContent=v+suf; if(p<1)requestAnimationFrame(step);};
+    requestAnimationFrame(step);
+  });
+}),{threshold:.4});
+document.querySelectorAll('.stats-grid').forEach(el=>cio.observe(el));
+
+/* marquee: duplicate for seamless loop */
+const mq=$('#mqtrack'); if(mq) mq.innerHTML+=mq.innerHTML;
+
+/* hero parallax */
+const art=$('#heroArt');
+if(art && !reduce){
+  addEventListener('mousemove',e=>{
+    const x=(e.clientX/innerWidth-.5), y=(e.clientY/innerHeight-.5);
+    art.style.transform=`translate(${x*16}px,${y*14}px)`;
+  },{passive:true});
+}
+
+/* ---- canvas animation framework ---- */
+const animators=[]; let T=0;
+function reg(canvas,draw){
+  if(!canvas)return; const ctx=canvas.getContext('2d'); const a={canvas,ctx,draw,vis:true,w:0,h:0};
+  function size(){const d=window.devicePixelRatio||1;const r=canvas.getBoundingClientRect();a.w=r.width;a.h=r.height;canvas.width=Math.max(1,a.w*d);canvas.height=Math.max(1,a.h*d);ctx.setTransform(d,0,0,d,0,0);}
+  size(); addEventListener('resize',size);
+  new IntersectionObserver(es=>es.forEach(e=>a.vis=e.isIntersecting),{threshold:0}).observe(canvas);
+  animators.push(a);
+}
+function loop(){ if(!reduce)T+=1/60; for(const a of animators){if(a.vis&&a.w>0)a.draw(a.ctx,a.w,a.h,T);} requestAnimationFrame(loop); }
+
+/* hero: flowing waves + ion particles */
+const ions=[];
+function initIons(w,h){ ions.length=0; const labels=['Na','K','Cl','Ca','+','+']; for(let i=0;i<26;i++){ions.push({x:Math.random()*w,y:Math.random()*h,r:1.5+Math.random()*2.5,s:.2+Math.random()*.5,o:.15+Math.random()*.3,t:labels[i%labels.length]});} }
+reg($('#heroCanvas'),(ctx,w,h,t)=>{
+  if(ions.length===0)initIons(w,h);
+  ctx.clearRect(0,0,w,h);
+  // waves (lower portion)
+  const waves=[{a:18,k:.008,sp:.5,o:.10,c:'14,143,166'},{a:26,k:.006,sp:.35,o:.08,c:'23,166,115'},{a:14,k:.011,sp:.7,o:.07,c:'61,224,176'}];
+  waves.forEach((wv,i)=>{
+    ctx.beginPath();
+    const base=h*(0.66+i*0.08);
+    for(let x=0;x<=w;x+=6){const y=base+Math.sin(x*wv.k+t*wv.sp+i)*wv.a+Math.sin(x*wv.k*2.3-t*wv.sp)*wv.a*.4;x===0?ctx.moveTo(x,y):ctx.lineTo(x,y);}
+    ctx.lineTo(w,h);ctx.lineTo(0,h);ctx.closePath();
+    ctx.fillStyle=`rgba(${wv.c},${wv.o})`;ctx.fill();
+  });
+  // ion particles drifting up
+  ctx.font='10px IBM Plex Mono';
+  ions.forEach(p=>{
+    if(!reduce){p.y-=p.s; if(p.y<-10){p.y=h+10;p.x=Math.random()*w;}}
+    ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,7);ctx.fillStyle=`rgba(23,166,115,${p.o})`;ctx.fill();
+    ctx.fillStyle=`rgba(14,143,166,${p.o*0.9})`;ctx.fillText(p.t,p.x+p.r+2,p.y+3);
+  });
+});
+
+/* pulse divider: scrolling ECG */
+function ecg(p){const Q=-0.14*Math.exp(-Math.pow((p-0.355)/0.009,2));const R=1*Math.exp(-Math.pow((p-0.38)/0.010,2));const S=-0.26*Math.exp(-Math.pow((p-0.41)/0.011,2));const P=0.1*Math.exp(-Math.pow((p-0.18)/0.024,2));const Tw=0.28*Math.exp(-Math.pow((p-0.6)/0.052,2));return P+Q+R+S+Tw;}
+function pulseDraw(color){return (ctx,w,h,t)=>{ctx.clearRect(0,0,w,h);const mid=h*0.5,amp=h*0.32,bw=150,sp=0.5;ctx.strokeStyle='rgba(14,143,166,0.12)';ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(0,mid);ctx.lineTo(w,mid);ctx.stroke();ctx.beginPath();ctx.lineWidth=2.4;ctx.strokeStyle=color;for(let x=0;x<=w;x+=2){const ph=((x/bw)-(t*sp))%1;const y=mid-ecg((ph+1)%1)*amp;x===0?ctx.moveTo(x,y):ctx.lineTo(x,y);}ctx.stroke();};}
+reg($('#pulse1'),pulseDraw('#17A673'));
+reg($('#pulse2'),pulseDraw('#0E8FA6'));
+
+loop();
+</script>
+</body>
+</html>
